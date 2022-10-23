@@ -1,71 +1,60 @@
 import React,{useState} from "react";
 
 function App() {
-  const [membro, setMembro] = useState();
-  const [nome, setNome] = useState();
-  const [cargo, setCargo] = useState();
-  const [idade, setIdade] = useState();
-  const [curso, setCurso] = useState();
+  const [exercicios, setExercicios] = useState([]);
 
-  function handleInputChange(e){
-      const key = e.target.name;
 
-      const newMembro = {...membro};
-      newMembro[key] = e.target.value;
-
-      setMembro(newMembro);
-      console.log(newMembro);
+  function handleInputChange(e){  
+    const value = e.target.value;
+    if(exercicios.indexOf(value) === -1){
+      const newExercicios = [...exercicios, value];
+      setExercicios(newExercicios); 
+    }
+    else{
+    const index = exercicios.indexOf(value);
+    const newExercicios = [...exercicios];
+    newExercicios.slice(index, 1);
+    setExercicios(newExercicios);
+    }
   }
 
   return (
     <div>
-      <h1>Novo membro</h1>
+      <h1>Exercícios em andamento</h1>
       <input
-       type="text" 
-       placeholder="Nome" 
-       onChange={handleInputChange}/>
-      <br />
-
-      <input id="GS"
-        type="radio"
-        name="cargo"
-        value="Gerente Scrum"
-        onChange={handleInputChange}/>
-        <label htmlfor="GS"> Gerente Scrum</label>
-      <br />
-      <br />
-
-      <input id="GS"
-       type="radio"
-        name="cargo"
-        value="Gerente de Produtos"
-        onChange={handleInputChange}/>
-        <label htmlfor="GS"> Gerente de Produtos</label>
+       id="Leg Press"
+       type="checkbox" 
+       value="Leg Press" 
+       onChange={handleInputChange}
+       />
+       <label htmlfor= "Leg Press"> Leg Press</label>
       <br />
       <input
-       type="text" 
-       placeholder="idade" 
-       onChange={handleInputChange}/>
+       id="Quadriceps e coluna"
+       type="checkbox" 
+       value="Quadriceps e coluna" 
+       onChange={handleInputChange}
+       />
+       <label htmlfor= "Quadriceps e coluna"> Quadriceps e coluna</label>
       <br />
       <input
-       type="text" 
-       placeholder="curso" 
-       onChange={handleInputChange}/>
+       id="Extensora"
+       type="checkbox" 
+       value="Extensora" 
+       onChange={handleInputChange}
+       />
+       <label htmlfor= "Extensora"> Extensora</label>
       <br />
       <input
-       type="text" 
-       placeholder="estado" 
-       onChange={handleInputChange}/>
+       id="Flexão"
+       type="checkbox" 
+       value="Flexão" 
+       onChange={handleInputChange}
+       />
+       <label htmlfor= "Flexão"> Flexão</label>
       <br />
-      <input
-       type="text" 
-       placeholder="cidade" 
-       onChange={handleInputChange}/>
-      <br />
-      <p>Nome: {nome}</p>
-      <p>Cargo: {cargo}</p>
-      <p>Cargo: {idade}</p>
-      <p>Cargo: {curso}</p>
+      <h3>Selecionados:</h3>      
+     <p>{exercicios.join(" ")}</p>
     </div>
   );
 }
