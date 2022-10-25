@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Smart Gym</title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <nav>
+            <div class="logo">
+                <h1>Smart Gym</h1>
+            </div>
+            <button onclick="abrirMenu()">&#9776;</button>
+            <ul id="botoesMenu">
+                <a href="#Home">
+                    <li>
+                        <p>Home</p>
+                    </li>
+                </a>
+                <a href="#Perfil">
+                    <li>
+                        <p>Perfil</p>
+                    </li>
+                </a>
+                <a href="#Cadastro">
+                    <li>
+                        <p>Cadastro</p>
+                    </li>
+                </a>
+                <a href="#Exercícios">
+                    <li>
+                        <p>Exercícios</p>
+                    </li>
+                </a>
+                <a href="#Login">
+                    <li>
+                        <p>Login</p>
+                    </li>
+                </a>
+            </ul>
+        </nav>
+
+        <script>
+            const arrayHeight = document.getElementsByClassName('height-nav');
+            const navHeight = document.getElementsByTagName('nav')[0].clientHeight;
+
+            for (let navHeightObj of arrayHeight)
+                navHeightObj.style.height = navHeight + 'px';
+
+            function abrirMenu() {
+                const botoesMenu = document.getElementById('botoesMenu');
+
+                botoesMenu.className = botoesMenu.className.includes('responsivo') ? '' : 'responsivo'
+            }
+        </script>
+    </body>
+</html>
