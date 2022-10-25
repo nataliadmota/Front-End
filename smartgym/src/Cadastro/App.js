@@ -11,7 +11,7 @@ function App() {
     const newPessoa = {...pessoa};
     newPessoa[key] = e.target.value;
 
-    setMembro(newPessoa);
+    setPessoa(newPessoa);
   }
 
     return (
