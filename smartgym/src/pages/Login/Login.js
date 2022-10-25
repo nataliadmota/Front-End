@@ -1,8 +1,7 @@
 import React from "react";
 
-export default function App(){
+export default function Login(){
     <div>
         <h1>Login</h1>
     </div>
     };
-    
